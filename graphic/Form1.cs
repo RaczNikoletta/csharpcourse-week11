@@ -5,14 +5,24 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Windows.Forms;
 using System;
-
+using System.Data.SQLite;
+using System.Drawing;
+using System.Data;
 
 namespace graphic
 {
+    
     public partial class Form1 : Form
     {
-        public Form1()
+        SQLiteCommand cmd;
+
+
+    public Form1()
         {
+            string cs = @"URI=file:C:\Users\raczn\source\repos\graphic\graphic\bin\Debug\net6.0-windows\robot.db";
+            var con = new SQLiteConnection(cs);
+            cmd = new SQLiteCommand(con);
+            con.Open();
             InitializeComponent();
         }
 
@@ -39,17 +49,26 @@ namespace graphic
                     else {
                         maleRadio.Checked = true;
                         femaleRadio.Checked = false;
+
+
                     }
                   
                     pictureBox1.Load(rawData.results[0].picture.large.ToString());
                     pictureBox2.Load("https://robohash.org/" + rawData.results[0].name.first);
-                
-       
+   
+                    cmd.CommandText = "INSERT INTO user(name, gender, email) VALUES(@name,@gender,@email)";
+                    cmd.Parameters.Add(new SQLiteParameter("@name", rawData.results[0].name.first));
+                    cmd.Parameters.Add(new SQLiteParameter("@gender", rawData.results[0].gender));
+                    cmd.Parameters.Add(new SQLiteParameter("@email", rawData.results[0].email));
+                    cmd.ExecuteNonQuery();
+
+
+
                 }
 
                 catch (Exception ex)
                 {
-                    label1.Text = "wrong data";
+                    label1.Text = ex.Message;
                     label2.Text = "";
                 }
             }
@@ -78,13 +97,18 @@ namespace graphic
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
 
         private void exitToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void userNames_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

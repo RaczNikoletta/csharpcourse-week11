@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,12 +37,11 @@
             this.maleRadio = new System.Windows.Forms.RadioButton();
             this.femaleRadio = new System.Windows.Forms.RadioButton();
             this.openButton = new System.Windows.Forms.Button();
-            //this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            //this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.openFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userNames = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.menuStrip2.SuspendLayout();
@@ -142,18 +140,20 @@
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.menuStrip1.Location = new System.Drawing.Point(0, 42);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 40);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1147, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
-          
+            // 
+            // menuStrip2
+            // 
             this.menuStrip2.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openFileToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1147, 42);
+            this.menuStrip2.Size = new System.Drawing.Size(1147, 40);
             this.menuStrip2.TabIndex = 12;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -162,7 +162,7 @@
             this.openFileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
-            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(133, 38);
+            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(133, 36);
             this.openFileToolStripMenuItem.Text = "Open file";
             // 
             // exitToolStripMenuItem
@@ -172,11 +172,22 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click_1);
             // 
+            // userNames
+            // 
+            this.userNames.Location = new System.Drawing.Point(787, 476);
+            this.userNames.Name = "userNames";
+            this.userNames.Size = new System.Drawing.Size(245, 46);
+            this.userNames.TabIndex = 13;
+            this.userNames.Text = "List usernames";
+            this.userNames.UseVisualStyleBackColor = true;
+            this.userNames.Click += new System.EventHandler(this.userNames_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1147, 613);
+            this.Controls.Add(this.userNames);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.openButton);
@@ -219,5 +230,6 @@
         private MenuStrip menuStrip2;
         private ToolStripMenuItem openFileToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
+        private Button userNames;
     }
 }
